@@ -1,0 +1,680 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.has-fade {
+  visibility: hidden;
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+    z-index: 1;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 600ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+    z-index: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+.fade-out {
+  animation: fade-out 600ms ease-in-out forwards;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+body.noscroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+select {
+  appearance: none;
+  /* remove default arrow */
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.6rem;
+  color: #4d4d4d;
+}
+
+li {
+  list-style: none;
+}
+
+@media (max-width: 63.9375em) {
+  .hide_for_mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide_for_desktop {
+    display: none;
+  }
+}
+
+.header {
+  background-image: linear-gradient(to right, #d1bea8, white);
+  height: 80px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  padding: 0 1rem;
+}
+
+.header.open #burgerButton > span:first-child {
+  transform: rotate(45deg);
+}
+
+.header.open #burgerButton > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open #burgerButton > span:last-child {
+  transform: rotate(-45deg);
+}
+
+.header.open .overlay {
+  display: block;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header nav a, .header nav select, .header nav div {
+  font-size: 1.2rem;
+  color: #4d4d4d;
+}
+
+.header nav .links:not(:last-child) {
+  margin-right: -15rem;
+}
+
+.header nav ._language {
+  position: relative;
+}
+
+.header nav ._language ._select_lang {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+.header nav ._language ._select_lang::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url("https://www.countryflags.io/ru/flat/32.png");
+  margin-right: 5px;
+}
+
+.header nav ._language ._lang_menu {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid wheat;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  top: 65px;
+  left: 25px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header nav ._language ._lang_menu li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header nav ._language ._lang_menu li a {
+  width: 150px;
+  display: block;
+  padding: 5px 5px;
+}
+
+.header nav ._language ._lang_menu li a:hover {
+  background-color: #d1bea8;
+}
+
+.header nav ._language ._lang_menu li a:before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.header nav ._language ._select_lang:hover + ._lang_menu {
+  display: block;
+  opacity: 1;
+}
+
+.header nav ._language ._lang_menu:hover {
+  display: block;
+  opacity: 1;
+}
+
+.header nav .__procedures {
+  position: relative;
+}
+
+.header nav .__procedures_select {
+  cursor: pointer;
+}
+
+.header nav .__procedures_menu {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid wheat;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header nav .__procedures_menu li a {
+  width: 150px;
+  display: block;
+  padding: 5px 10px;
+}
+
+.header nav .__procedures_menu li a:hover {
+  background-color: wheat;
+}
+
+.header nav .__procedures_select:hover + .__procedures_menu {
+  display: block;
+  opacity: 1;
+}
+
+.header nav .__procedures_menu:hover {
+  display: block;
+  opacity: 1;
+}
+
+.header .ua::before {
+  background-image: url("https://www.countryflags.io/ua/flat/32.png");
+}
+
+.header .es::before {
+  background-image: url("https://www.countryflags.io/es/flat/32.png");
+}
+
+.header .gb::before {
+  background-image: url("https://www.countryflags.io/gb/flat/32.png");
+}
+
+.header__burger {
+  padding: 30px !important;
+}
+
+.header__burger > span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #d1bea8;
+  transition: all 300ms ease-in-out;
+  transform-origin: 2px 1px;
+}
+
+.header__burger > span:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.header__legend h1 {
+  font-family: 'Antiqua Ho', arial;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+.header__legend h2 {
+  font-size: 1.2rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.header .overlay {
+  opacity: 0;
+  position: fixed;
+  top: 80px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-image: linear-gradient(to right, #d1bea8, white);
+}
+
+.header .mobile__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  border: 1px solid wheat;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  font-size: 0.6rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.header .mobile__menu a {
+  padding: 10px 50px;
+  margin: 10px;
+}
+
+.header .mobile__menu a:hover {
+  background-color: wheat;
+}
+
+.header .mobile__menu_selec_procedur {
+  padding-right: 10px;
+}
+
+.header .mobile__menu_procedure_div {
+  position: relative;
+}
+
+.header .mobile__menu_procedure_div select {
+  text-align-last: center;
+}
+
+.header .mobile__menu_procedure_div::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 14px 4px 0 4px;
+  border-color: wheat transparent transparent transparent;
+  top: 20%;
+  right: 8px;
+  position: absolute;
+  z-index: 1;
+}
+
+.header .mobile__menu_selectlang_div {
+  position: relative;
+}
+
+.header .mobile__menu_selectlang_div::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 14px 4px 0 4px;
+  border-color: wheat transparent transparent transparent;
+  top: 20%;
+  right: 10px;
+  position: absolute;
+  z-index: 1;
+}
+
+.carousel_my {
+  font-family: 'Public Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: #ffffcc;
+  box-sizing: border-box;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel .carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item {
+  width: inherit;
+  height: inherit;
+  position: relative;
+}
+
+.carousel .carousel-inner .carousel-item img {
+  object-fit: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+}
+
+.carousel .carousel-inner .carousel-item .carousel-caption {
+  top: 50%;
+  left: 65%;
+  display: block;
+  color: #c19a6b;
+}
+
+.carousel .carousel-inner .carousel-item .carousel-caption h5 {
+  text-align: left;
+}
+
+.carousel .carousel-inner .carousel-item .carousel-caption p {
+  text-align: left;
+}
+
+.about {
+  font-family: 'Public Sans', sans-serif;
+  background-color: wheat;
+  box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.38) inset;
+  padding: 10px;
+  width: 100%;
+}
+
+.about .about__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about .about__items .about__photo {
+  max-width: 300px;
+  max-height: 600px;
+  min-width: 100px;
+  padding: 10px;
+}
+
+.about .about__items .about__photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+  transition: all 150ms ease-in-out;
+}
+
+.about .about__items .about__photo img:hover {
+  transform: scale(1.05);
+}
+
+.about .about__items .about__discr h1 {
+  font-size: 2.4rem;
+  padding: 10px;
+  object-position: center;
+}
+
+.about .about__items .about__discr h2 {
+  font-size: 1.8rem;
+  padding: 10px;
+  object-position: left;
+}
+
+.about .about__items .about__discr li {
+  font-size: 1.2rem;
+  object-position: left;
+}
+
+.procedures__sectiones {
+  font-family: 'Public Sans', sans-serif;
+  background-color: #ffffcc;
+  box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.38) inset;
+  /* The Modal (background) */
+  /* Modal Content (image) */
+  /* Caption of Modal Image */
+  /* Add Animation */
+  /* The Close Button */
+}
+
+.procedures__sectiones .procedura__section .procedura__title h1 {
+  font-size: 1.2rem;
+}
+
+.procedures__sectiones .procedura__section .procedura__photots {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 10rem;
+  white-space: nowrap;
+}
+
+.procedures__sectiones .procedura__section .procedura__photots img {
+  box-shadow: 1px 1px 10px #999;
+  margin: 2px;
+  max-height: 200px;
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  /* For IE7*/
+  *zoom: 1;
+  /* For IE7*/
+  vertical-align: top;
+}
+
+.procedures__sectiones .modal-target {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.procedures__sectiones .modal-target:hover {
+  opacity: 0.7;
+}
+
+.procedures__sectiones .modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-image: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), white);
+}
+
+.procedures__sectiones .modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  opacity: 1 !important;
+  max-width: 1200px;
+}
+
+.procedures__sectiones .modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: 32px;
+}
+
+.procedures__sectiones .modal-content, .procedures__sectiones .modal-caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.procedures__sectiones .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.procedures__sectiones .modal-close:hover,
+.procedures__sectiones .modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contacts {
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: wheat;
+  box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.38) inset;
+}
+
+.contacts #map {
+  margin: 10px;
+  height: 400px;
+  /* The height is 400 pixels */
+  min-width: 60%;
+  /* The width is the width of the web page */
+}
+
+@media (max-width: 63.9375em) {
+  .contacts #map {
+    min-width: 100%;
+  }
+}
+
+.contacts__details {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts__details__links {
+  display: flex;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.contacts__details__links div {
+  width: 32px;
+  height: 32px;
+}
+
+.contacts__details__datas {
+  font-family: 'Public Sans', sans-serif;
+}
+
+footer {
+  display: block;
+  height: 50px;
+  background-color: #c19a6b;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+footer .footer__text {
+  padding-top: 10px;
+}
+
+footer p {
+  margin-bottom: 5px !important;
+}

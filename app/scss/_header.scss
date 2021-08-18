@@ -1,0 +1,308 @@
+.header {
+    
+
+    background-image: linear-gradient(to right, $darkVanilla, $white);
+    height: 80px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    padding: 0 1rem;
+    //box-sizing: border-box;
+    //border: 2px solid red;
+
+    &.open {
+        #burgerButton {
+            >span:first-child {
+                transform: rotate(45deg);
+            }
+        
+            >span:nth-child(2) {
+                opacity: 0;
+            }
+        
+            >span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .overlay {
+
+            display: block;
+
+        }
+
+    }
+
+    nav {
+        
+            display: flex;
+            justify-content: space-between;                      //горизонтаьлное положение элементов
+            align-items: center;                                //Вертикальное положение
+
+        a,select,div {
+            font-size: $font-med;
+            color: $lightBlack;
+        }
+
+        .links:not(:last-child){
+            margin-right: -15rem;
+        }
+
+        ._language {
+            position: relative;
+
+            ._select_lang {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px;
+            }
+
+            ._select_lang::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url("https://www.countryflags.io/ru/flat/32.png");
+                margin-right: 5px;
+            }
+
+            ._lang_menu {
+                margin: 0;
+                padding: 0;
+                z-index: 1;
+                background-color: $white;
+                border: 1px solid $softCream;
+                box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+                border-radius: 5px;
+                position: absolute;
+                top: 65px;
+                left: 25px;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    a {
+                        width: 150px;
+                        display: block;
+                        padding: 5px 5px;
+                    }
+                    a:hover {
+                        background-color: $darkVanilla;
+                    }
+                    a:before {
+                        content: '';
+                        display: inline-block;
+                        width: 32px;
+                        height: 32px;
+                        margin-right: 10px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+            ._select_lang:hover + ._lang_menu {
+                display: block;
+                opacity: 1;
+            }
+            ._lang_menu:hover {
+                display: block;
+                opacity: 1;
+            }
+        }
+
+        .__procedures {
+            position: relative;
+            
+            &_select {
+                cursor: pointer;
+            }
+
+            &_menu {
+                margin: 0;
+                padding: 0;
+                z-index: 1;
+                background-color: $white;
+                border: 1px solid $softCream;
+                box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+                border-radius: 5px;
+                position: absolute;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+
+                li {
+
+                    a {
+                        width: 150px;
+                        display: block;
+                        padding: 5px 10px;
+                    }
+                    a:hover {
+                        background-color: $softCream;
+                    }
+                }
+
+            }
+        }
+        .__procedures_select:hover + .__procedures_menu {
+            display: block;
+            opacity: 1;
+        }
+        .__procedures_menu:hover {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    .ua::before {
+        background-image: url("https://www.countryflags.io/ua/flat/32.png");;
+    }
+    .es::before {
+        background-image: url("https://www.countryflags.io/es/flat/32.png");;
+    }
+    .gb::before {
+        background-image: url("https://www.countryflags.io/gb/flat/32.png");;
+    }
+
+    &__burger{
+        padding: 30px !important ; 
+        > span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: $darkVanilla;
+            transition: all 300ms ease-in-out;
+            transform-origin: 2px 1px;
+
+            &:not(:last-child){
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+
+    &__legend {
+
+        h1 {
+            font-family: 'Antiqua Ho', arial;
+            font-weight: 900;
+            //font-family: 'Volkhov', serif;
+            font-size: $font-lg;
+        }
+
+        h2 {
+            font-size: $font-med;
+            font-family: 'Dancing Script', cursive;
+        }
+
+    }
+
+    .overlay {
+        opacity: 0;
+        //display: none;
+        //visibility: 0;
+        position: fixed;
+        top: 80px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        background-image: linear-gradient(to right, $darkVanilla, $white);
+        //z-index: 1 !important;
+    }
+
+    .mobile__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //text-align: center;
+        //object-fit: center;
+        padding: 10px;
+        margin: 10px;
+        background-color: $white;
+        border: 1px solid $softCream;
+        box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        //width: calc(100vw - 15rem);
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        //opacity: 0;
+        //display: none;
+
+        font-size: $font-sm;
+        text-align: center;
+        z-index: 1;
+
+        a{
+            padding: 10px 50px;
+            margin: 10px;
+            //text-align: center;
+        }
+
+        a:hover {
+            background-color: $softCream;
+        }
+
+        &_about {
+
+        }
+
+        &_selec_procedur {
+            padding-right: 10px;
+        }
+
+        &_contacts {
+
+        }
+
+        &_procedure_div {
+            position: relative;
+            select {
+                text-align-last: center;
+                //text-align: center;
+                option {
+                    //text-align-last: center;
+                    //text-align: center;
+
+                    a{
+                        //text-align: center;
+                        //object-fit: center;
+                    }
+
+                }   
+            }
+        }
+        
+        &_procedure_div::after {
+            content: '';
+            display: block;
+            border-style: solid;
+            border-width: 14px 4px 0 4px;
+            border-color: $softCream transparent transparent transparent;
+
+            top: 20%;
+            right: 8px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        &_selectlang_div {
+            position: relative;
+        }
+
+        &_selectlang_div::after {
+            content: '';
+            display: block;
+            border-style: solid;
+            border-width: 14px 4px 0 4px;
+            border-color: $softCream transparent transparent transparent;
+
+            top: 20%;
+            right: 10px;
+            position: absolute;
+            z-index: 1;
+        }
+
+    }
+
+}
